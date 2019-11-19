@@ -25,6 +25,16 @@ class UdpClient{
 	}
 	
 	public void start() throws IOException, InterruptedException {
+ 		Runtime.getRuntime().addShutdownHook(new Thread(){
+            @Override
+            public void run(){
+				try{
+					auxiliar.saveStructure();
+				}catch(IOException e){
+					System.out.println("Cann´t save structure");
+				}
+            }
+        });
 
 		while(true) {
 			BufferedReader arquivo = new BufferedReader(new FileReader(FILE_NAME));

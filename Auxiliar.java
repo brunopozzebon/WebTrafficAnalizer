@@ -5,11 +5,10 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.Instant;
 import java.util.ArrayList;
 
 public class Auxiliar {
-	private static final String NETWORK_ANALYSIS_FILE = "./last_network_analysis.txt";
+	private static final String NETWORK_ANALYSIS_FILE = "./visualAnalysis/index.html";
 	private ArrayList<InstantAnalysis> analysis;
 	private String type;
 	private boolean withIperf;
@@ -21,8 +20,7 @@ public class Auxiliar {
 	}
 	
 	public void log(int windowSize, int losses, long timer) {
-		System.out.println(String.format(
-				  "%s - Window Size: %d - Losses: %d - Timer: &d", 
+		System.out.println(String.format("%s - Window Size: %d - Losses: %d - Timer: %d", 
 				  this.type,windowSize,losses,timer));
 		saveInstant(timer, windowSize, losses);
 	}
@@ -54,7 +52,7 @@ public class Auxiliar {
 		for (int i = 0; i < analysis.size(); i++) {
 			InstantAnalysis instantAnalysis = analysis.get(i);
 			newData+=instantAnalysis.toString();
-			if(i+1==analysis.size()) {
+			if(i+1!=analysis.size()) {
 				newData+=",";
 			}
 		}
@@ -64,13 +62,14 @@ public class Auxiliar {
 		
 		FileWriter writer = new FileWriter(NETWORK_ANALYSIS_FILE);
 		
-		writer.write("DO NOT MODIFY THIS FILE;");
 		for (int i = 0; i < splittedContent.length; i++) {
-			writer.write(splittedContent[i]+";\n");
+			if(i+1==splittedContent.length){
+				writer.write(splittedContent[i]);
+			}else{
+				writer.write(splittedContent[i]+";");
+			}
 		}
 		writer.close();
-			
-		
 	}
 	
 	private String getPrefix() {

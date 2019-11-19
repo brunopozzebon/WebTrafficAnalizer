@@ -4,7 +4,7 @@ import java.net.UnknownHostException;
 public class TcpClientTest {
 	public static void main(String[] args) {
 		boolean withIperf=false;
-		if(args.length==0) {
+		if(args.length>0) {
 			withIperf=true;
 		}
 		
