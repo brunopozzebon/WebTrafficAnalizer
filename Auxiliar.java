@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 
-import sun.misc.IOUtils;
-
 public class Auxiliar {
 	private static final String NETWORK_ANALYSIS_FILE = "./last_network_analysis.txt";
 	private ArrayList<InstantAnalysis> analysis;
