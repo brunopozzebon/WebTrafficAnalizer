@@ -15,15 +15,12 @@ public class CongestionAvoidance implements WindowIncrease {
 		}else{
 			this.windowSize+=10;
 		}
-		
-		return this;
+		return new CongestionAvoidance(windowSize, ssthreshhold);
 	}
 
 	@Override
 	public WindowIncrease decrease() {
-		
 		return new SlowStart(1,this.windowSize/2);
-	
 	}
 
 	@Override

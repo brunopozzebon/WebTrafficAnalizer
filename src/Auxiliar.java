@@ -18,14 +18,14 @@ public class Auxiliar {
 		this.withIperf = withIperf;
 	}
 	
-	public void log(int windowSize, int losses, long timer) {
-		System.out.println(String.format("%s - Window Size: %d - Losses: %d - Timer: %d", 
-				  this.type,windowSize,losses,timer));
-		saveInstant(timer, windowSize, losses);
+	public void log(int windowSize, int losses, long timer,int sequence) {
+		System.out.println(String.format("%s %d - Window Size: %d - Losses: %d - Timer: %d", 
+				  this.type,sequence,windowSize,losses,timer));
+		saveInstant(timer, windowSize, losses,sequence);
 	}
 	
-	private void saveInstant(long timeout, int windowSize, int losses) {
-		this.analysis.add(new InstantAnalysis(timeout, windowSize, losses));
+	private void saveInstant(long timeout, int windowSize, int losses, int sequence) {
+		this.analysis.add(new InstantAnalysis(timeout, windowSize, losses,sequence));
 	}
 	
 	public void saveStructure(long time) throws IOException {
@@ -51,11 +51,11 @@ public class Auxiliar {
 		for (int i = 0; i < analysis.size(); i++) {
 			InstantAnalysis instantAnalysis = analysis.get(i);
 			newData+=instantAnalysis.toString();
-			if(i+1!=analysis.size()) {
 				newData+=",";
-			}
 		}
+		
 		if (!newData.equals("")) {
+			newData+=time;
 			splittedContent[index] = newData;
 		}
 		
@@ -63,7 +63,7 @@ public class Auxiliar {
 		
 		for (int i = 0; i < splittedContent.length; i++) {
 			if(i+1==splittedContent.length){
-				writer.write(splittedContent[i]+";"+time);
+				writer.write(splittedContent[i]+";");
 			}else{
 				writer.write(splittedContent[i]+";");
 			}

@@ -10,19 +10,16 @@ public class SlowStart implements WindowIncrease{
 
 	@Override
 	public WindowIncrease increase() {
-		if(this.windowSize*2<this.ssthreshhold) {
-			this.windowSize*=2;		
-			return new SlowStart(this.windowSize,this.ssthreshhold);
+		if(windowSize*2<ssthreshhold) {
+			return new SlowStart(windowSize*=2,ssthreshhold);
 		}else {
-			return new CongestionAvoidance(this.windowSize, this.ssthreshhold);
+			return new CongestionAvoidance(windowSize, ssthreshhold);
 		}
 	}
 
 	@Override
 	public WindowIncrease decrease() {
-		this.ssthreshhold=this.windowSize/2;
-		this.windowSize=1;
-		return this;
+		return new SlowStart(1,windowSize/2);
 	}
 
 	@Override

@@ -41,3 +41,7 @@ header h1{
     text-transform: uppercase;
     padding: 10px;
 }
+
+#space1seconds, #space2seconds,#space3seconds,#space4seconds{
+    text-align: center;
+}

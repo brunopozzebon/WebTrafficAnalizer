@@ -11,10 +11,10 @@ class UdpClient extends ClientProtocol{
 	}
 
 	public void start() throws IOException, InterruptedException {
-		while(sequence<30000) {
+		
 			LineNumberReader file = new LineNumberReader(new FileReader(FILE_NAME));
 			String sentence=file.readLine();
-			while (sentence != null) {
+			while (sentence != null && sequence<100000 ) {
 				try {
 					DatagramSocket clientSocket = new DatagramSocket();
 
@@ -63,7 +63,7 @@ class UdpClient extends ClientProtocol{
 					}
 
 					//This, print the log and save the log in a internal structure
-					auxiliar.log(windowIncrease.getWindowSize(), losses, timer.getTimeOut());
+					auxiliar.log(windowIncrease.getWindowSize(), losses, timer.getTimeOut(),sequence);
 
 					
 					clientSocket.setSoTimeout((int) timer.getTimeOut());
@@ -97,8 +97,8 @@ class UdpClient extends ClientProtocol{
 			}
 			long endTime = System.currentTimeMillis();
 			long time = endTime - inicialTimer;
-			auxiliar.saveStructure(time);
+			auxiliar.saveStructure( time/ (long)1000);
 			file.close();
 		}
-	}	
+		
 }
