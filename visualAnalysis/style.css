@@ -1,0 +1,43 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+#data{
+    display: none;
+    visibility: hidden;
+}
+
+.background{
+    padding: 40px 10%;
+    background-color: #ebebeb;
+}
+
+.card{
+    border-radius: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    background-color: white;
+    padding: 20px 0;
+}
+
+h2{
+    font-size: 20px;
+    text-align: center;
+}
+
+.noData{
+    text-align: center;
+    padding: 20px;
+    margin: 0 20px;
+    border-radius: 10px;
+    background-color: #f5f4f4;
+}
+
+header{
+    text-align: center;
+}
+header h1{
+    text-transform: uppercase;
+    padding: 10px;
+}
