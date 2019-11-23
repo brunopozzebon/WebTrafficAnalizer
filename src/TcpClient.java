@@ -21,7 +21,7 @@ public class TcpClient extends ClientProtocol{
 
 
 	public void start() throws UnknownHostException, IOException, InterruptedException, ClassNotFoundException {
-
+/*
 		Socket client = new Socket(this.server, this.door);
 
 		LineNumberReader file = new LineNumberReader(new FileReader(FILE_NAME));
@@ -89,6 +89,7 @@ public class TcpClient extends ClientProtocol{
 		input.close();
 		file.close();
 		output.close();
-		client.close();		
+		client.close();	
+		*/	
 	}
 }

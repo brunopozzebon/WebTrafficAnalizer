@@ -28,7 +28,7 @@ public class Auxiliar {
 		this.analysis.add(new InstantAnalysis(timeout, windowSize, losses));
 	}
 	
-	public void saveStructure() throws IOException {
+	public void saveStructure(long time) throws IOException {
 		File fileToBeModified = new File(NETWORK_ANALYSIS_FILE);
 		BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified));
 		String content = "";
@@ -63,7 +63,7 @@ public class Auxiliar {
 		
 		for (int i = 0; i < splittedContent.length; i++) {
 			if(i+1==splittedContent.length){
-				writer.write(splittedContent[i]);
+				writer.write(splittedContent[i]+";"+time);
 			}else{
 				writer.write(splittedContent[i]+";");
 			}

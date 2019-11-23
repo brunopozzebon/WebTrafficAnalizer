@@ -95,7 +95,9 @@ class UdpClient extends ClientProtocol{
 					decrease();
 				}
 			}
-			auxiliar.saveStructure();
+			long endTime = System.currentTimeMillis();
+			long time = endTime - inicialTimer;
+			auxiliar.saveStructure(time);
 			file.close();
 		}
 	}	

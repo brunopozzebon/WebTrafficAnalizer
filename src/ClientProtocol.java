@@ -19,7 +19,7 @@ public class ClientProtocol {
 	protected int requestedSequence;
 	protected int losses;
 
-	protected int inicialTimer;
+	protected long inicialTimer;
 	
 	public ClientProtocol(String hostName, int door, boolean withIperf, String type) throws UnknownHostException {
 		this.server = hostName;

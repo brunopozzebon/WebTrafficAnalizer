@@ -18,6 +18,7 @@ public class TcpServer {
 	}
 
 	public void start() throws IOException, NumberFormatException, ClassNotFoundException {
+		/*
 		Runtime.getRuntime().addShutdownHook(new Thread(){
 			@Override
 			public void run(){				
@@ -55,5 +56,6 @@ public class TcpServer {
 		input.close();
 		entranceSocket.close();
 		cliente.close();
+		*/
 	}	
 }
