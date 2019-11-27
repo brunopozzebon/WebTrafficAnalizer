@@ -8,6 +8,7 @@ public class UdpServerTest {
 		try {
 			server.start();
 		} catch (IOException e) {
+			System.out.println(e);
 			System.out.println("Invalid door");
 		}
 	}

@@ -11,14 +11,14 @@ public class TcpServer {
 	private int door;
 	private int sequence;
 	private ServerSocket entranceSocket;
-
+	
 	public TcpServer(int door) {
 		this.door = door;
 		this.sequence = 0;
 	}
 
 	public void start() throws IOException, NumberFormatException, ClassNotFoundException {
-		/*
+		
 		Runtime.getRuntime().addShutdownHook(new Thread(){
 			@Override
 			public void run(){				
@@ -55,7 +55,7 @@ public class TcpServer {
 
 		input.close();
 		entranceSocket.close();
-		cliente.close();
-		*/
+		cliente.close();		
+		
 	}	
 }

@@ -19,7 +19,7 @@ public class SlowStart implements WindowIncrease{
 
 	@Override
 	public WindowIncrease decrease() {
-		return new SlowStart(1,windowSize/2);
+		return new SlowStart(1,windowSize);
 	}
 
 	@Override

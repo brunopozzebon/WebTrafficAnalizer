@@ -11,7 +11,7 @@ public class TcpClientTest {
 		}
 		
 		//Read IP of the server from ip.txt
-		LineNumberReader arquivo = new LineNumberReader(new FileReader(";./ip.txt"));
+		LineNumberReader arquivo = new LineNumberReader(new FileReader("../ip.txt"));
 		String IPServer= arquivo.readLine().trim();
 		arquivo.close();
 		

@@ -19,22 +19,14 @@ public class TcpClient extends ClientProtocol{
 		super(hostName,door,withIperf,type);
 	}
 
-
 	public void start() throws UnknownHostException, IOException, InterruptedException, ClassNotFoundException {
-/*
 		Socket client = new Socket(this.server, this.door);
-
 		LineNumberReader file = new LineNumberReader(new FileReader(FILE_NAME));
 		String sentence = file.readLine();
-
 		PrintStream output = new PrintStream(client.getOutputStream());
 		Scanner input = new Scanner(client.getInputStream());
 
-		while(sequence<30000){
-
-		}
-
-		while (sentence != null) {
+		while (sentence != null && sequence<100000 ) {
 
 			//This work like the timeout and the SocketException, a timer to TCP
 			Timer taskTimeOut = new Timer();
@@ -61,7 +53,7 @@ public class TcpClient extends ClientProtocol{
 				}
 
 				sentence="SEQ_"+(sequence++)+";"+sentence;	
-				Thread.sleep(1);
+				
 				output.println(sentence);
 
 				sentence = file.readLine();
@@ -72,7 +64,7 @@ public class TcpClient extends ClientProtocol{
 				}
 			}				
 
-			auxiliar.log(windowIncrease.getWindowSize(), losses, timer.getTimeOut());
+			auxiliar.log(windowIncrease.getWindowSize(), losses, timer.getTimeOut(),sequence);
 
 			for (int i = 0; i < windowIncrease.getWindowSize(); i++) {
 				String responseSentence = input.nextLine();
@@ -85,11 +77,12 @@ public class TcpClient extends ClientProtocol{
 			windowIncrease = windowIncrease.increase();
 
 		}
-		auxiliar.saveStructure();
 		input.close();
 		file.close();
 		output.close();
-		client.close();	
-		*/	
+		client.close();		
 	}
 }
+
+
+
