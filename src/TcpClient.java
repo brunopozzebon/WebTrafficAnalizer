@@ -53,7 +53,7 @@ public class TcpClient extends ClientProtocol{
 				}
 
 				sentence="SEQ_"+(sequence++)+";"+sentence;	
-				
+				Thread.sleep(1);
 				output.println(sentence);
 
 				sentence = file.readLine();
@@ -77,6 +77,12 @@ public class TcpClient extends ClientProtocol{
 			windowIncrease = windowIncrease.increase();
 
 		}
+
+		long endTime = System.currentTimeMillis();
+		long time = endTime - inicialTimer;
+		auxiliar.saveStructure( time/ (long)1000);
+		file.close();
+
 		input.close();
 		file.close();
 		output.close();
